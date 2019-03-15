@@ -13,7 +13,10 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   tf
+  sensor_msgs
+  cv_bridge
 )
+find_package(OpenCV)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -105,9 +108,9 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
+  INCLUDE_DIRS include
 #  LIBRARIES cyclone_vision
-#  CATKIN_DEPENDS geometry_msgs roscpp rospy std_msgs tf
+  CATKIN_DEPENDS geometry_msgs roscpp rospy std_msgs tf sensor_msgs cv_bridge
 #  DEPENDS system_lib
 )
 
@@ -121,6 +124,7 @@ include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
 )
+include_directories(${OpenCV_INCLUDE_DIRS})
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
@@ -136,7 +140,10 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/cyclone_vision_node.cpp)
-
+message(STATUS "OpenCV libraries" ${OpenCV_LIBRARIES})
+add_executable(vision src/vision.cpp src/detection/CircleBoard.cpp src/detection/Detect_Markers.cpp)
+target_link_libraries(vision ${catkin_LIBRARIES})
+target_link_libraries(vision ${OpenCV_LIBRARIES})
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use

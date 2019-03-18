@@ -5,7 +5,7 @@
 #include <opencv/cv.hpp>
 #include <cmath>
 #include <math.h>
-#include <Eigen/Dense>
+#include <eigen3/Eigen/Dense>
 #include <opencv2/core/eigen.hpp>
 #include "opencv2/aruco.hpp"
 #include "opencv2/highgui.hpp"

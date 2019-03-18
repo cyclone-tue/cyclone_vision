@@ -17,7 +17,8 @@ find_package(catkin REQUIRED COMPONENTS
   cv_bridge
   image_transport
 )
-find_package(OpenCV)
+find_package(OpenCV REQUIRED)
+find_package(Eigen3 REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -126,6 +127,7 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 include_directories(${OpenCV_INCLUDE_DIRS})
+include_directories(${Eigen3_INCLUDE_DIRS})
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}

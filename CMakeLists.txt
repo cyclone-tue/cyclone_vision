@@ -15,6 +15,7 @@ find_package(catkin REQUIRED COMPONENTS
   tf
   sensor_msgs
   cv_bridge
+  image_transport
 )
 find_package(OpenCV)
 
@@ -110,7 +111,7 @@ find_package(OpenCV)
 catkin_package(
   INCLUDE_DIRS include
 #  LIBRARIES cyclone_vision
-  CATKIN_DEPENDS geometry_msgs roscpp rospy std_msgs tf sensor_msgs cv_bridge
+  CATKIN_DEPENDS geometry_msgs roscpp rospy std_msgs tf sensor_msgs cv_bridge image_transport
 #  DEPENDS system_lib
 )
 

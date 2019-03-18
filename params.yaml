@@ -3,4 +3,6 @@ camera_matrix: [581.3544585420893, 0.0, 349.9510938226247, 0.0, 579.475777075157
 dist_matrix: [0.2796232670713149, -6.0937130120535015, 0.002533306479462369, 0.010895642051903654,
   33.37920739794684]
 
-
+camera_transform: #Transform parameters from drone frame to camera. Note that x is forward, y is left an z is up.
+  offset: {x: 0.2, y: 0.0, z: 0.05} #Offset between drone body and camera in meters.
+  rotation: {roll: 0.0, pitch: 0.0, yaw: 0.0} #Rotation between drone body and camera in radians in RPY.

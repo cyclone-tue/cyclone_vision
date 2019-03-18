@@ -31,16 +31,10 @@ using namespace Eigen;
 class vision {
 public:
     static bool detectHoop(cv_bridge::CvImagePtr cv_ptr, tf::Pose &result);
-    static bool run(VectorXd& currentState, Vector3d& hoopTransVec, Matrix3d& hoopRotMat);
     static void setupVariables(float* camera_matrix, float* distortion_coefficients);
-    static void cleanup();
-    static void projectPointsOntoCam(vector<Point3d> cvPoints, VectorXd& currentState, vector<Point2d>& imagePoints);
-    static void writeVideo(Mat frame);
-    static Mat debugFrame;  // for visualization.
 private:
     static bool readCameraParameters(float* camera_matrix, float* distortion_coefficients, OutputArray calCam, OutputArray calDist);
-    static Matrix3d anglesToRotMatXYZ(double roll, double pitch, double yaw);
-    static Matrix3d anglesToRotMatZYX(double roll, double pitch, double yaw);
+
 };
 
 

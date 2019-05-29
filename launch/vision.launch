@@ -1,0 +1,5 @@
+<launch>
+    <include file="$(find cyclone_vision)/launch/camera.launch"/>
+    <rosparam command="load" file="$(find cyclone_vision)/params.yaml"/>
+    <node name="cyclone_vision" pkg="cyclone_vision" type="vision" />
+</launch>
